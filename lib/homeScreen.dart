@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class homeScreen extends StatelessWidget {
-  const homeScreen({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,26 +11,26 @@ class homeScreen extends StatelessWidget {
         ),
         body: 
           ListView(
-            children: const <Widget> [
+            children:  <Widget> [
               ListTile(
-                title: Text('Sulfuro'),
-                subtitle: Text('De cloruro'),
-                leading: Icon(Icons.input_rounded),
-                trailing: Icon(Icons.arrow_right_alt_outlined),
+                title: Text('Sulfuro', style: Theme.of(context).textTheme.headlineLarge),
+                subtitle: Text('De cloruro', style: Theme.of(context).textTheme.bodySmall),
+                leading: const Icon(Icons.input_rounded),
+                trailing: const Icon(Icons.arrow_right_alt_outlined),
               ),
               Divider(),
               ListTile(
-                title: Text('Cloruro'),
-                subtitle: Text('de sodio'),
-                leading: Icon(Icons.list_alt_sharp),
-                trailing: Icon(Icons.arrow_right_alt_outlined),
+                title:  Text('Cloruro', style: Theme.of(context).textTheme.headlineLarge),
+                subtitle:  Text('de sodio', style: Theme.of(context).textTheme.bodySmall),
+                leading: const Icon(Icons.list_alt_sharp),
+                trailing: const Icon(Icons.arrow_right_alt_outlined),
               ),
               Divider(),
               ListTile(
-                title: Text('Acido'),
-                subtitle: Text('Sulfurico'),
-                leading: Icon(Icons.notification_important),
-                trailing: Icon(Icons.arrow_right_alt_outlined),
+                title: Text('Acido', style: Theme.of(context).textTheme.headlineLarge),
+                subtitle: Text('Sulfurico', style: Theme.of(context).textTheme.bodySmall),
+                leading: const Icon(Icons.notification_important),
+                trailing: const Icon(Icons.arrow_right_alt_outlined),
               )
           ],
          ),
