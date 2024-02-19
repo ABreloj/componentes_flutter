@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practica_3/theme/app_theme.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -13,7 +14,7 @@ class HomeScreen extends StatelessWidget {
           ListView(
             children:  <Widget> [
               ListTile(
-                title: Text('Sulfuro', style: Theme.of(context).textTheme.headlineLarge),
+                title: Text('Sulfuro', style: AppTheme.lightTheme.textTheme.headlineLarge),
                 subtitle: Text('De cloruro', style: Theme.of(context).textTheme.bodySmall),
                 leading: const Icon(Icons.input_rounded),
                 trailing: const Icon(Icons.arrow_right_alt_outlined),
