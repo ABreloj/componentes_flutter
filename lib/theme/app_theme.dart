@@ -19,6 +19,10 @@ class AppTheme{
             fontSize: 24.0,
             fontWeight: FontWeight.bold,
             color: primaryColor,
+            decoration: TextDecoration.overline,
+            decorationColor: primaryColor,
+            decorationStyle: TextDecorationStyle.wavy,
+            decorationThickness: 10.8,
           ), 
 
           //Fuentes para textos chiquitos
@@ -26,6 +30,7 @@ class AppTheme{
             fontSize: 18.0,
             fontWeight: FontWeight.w900,
             color: secondaryColor,
+            fontStyle: FontStyle.italic
           ),
         ),
 
