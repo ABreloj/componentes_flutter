@@ -9,20 +9,69 @@ class inputs extends StatefulWidget {
 }
 
 class _inputsState  extends State<inputs > {
+  bool valueSwitch = false;
+  double sliderValue = 0.0;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-         Text('Ventana de entradas', 
-         style: AppTheme.lightTheme.textTheme.headlineLarge),
-          Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+
+    return Scaffold(
+      appBar: AppBar(title: const Text('Mermelada cosmica 2x1'), ),
+
+      body: Padding(
+        padding: const EdgeInsets.all(19.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            ElevatedButton(onPressed: null, child: Text('Retroceder', style: AppTheme.lightTheme.textTheme.headlineLarge,)),
-            ElevatedButton(onPressed: null, child: Text('DataScreen')),
+            
+             
+             entradaTexto(),
+             entradaSwitch(),
+             entradaSlider(),
+              
+                const ElevatedButton(onPressed: null, child: Text('Guardar')),
+            
           ],
-         )
+        ),
+      ),
+      bottomNavigationBar:  BottomNavigationBar(items: const [BottomNavigationBarItem(icon: Icon(Icons.home), label: 'inicio'), BottomNavigationBarItem(icon: Icon(Icons.next_plan), label: 'Datos',)],),
+    );
+  }
+
+  dynamic entradaTexto() => TextField(style:AppTheme.lightTheme.textTheme.headlineMedium, decoration: InputDecoration(border: const UnderlineInputBorder(), labelText: 'Name', labelStyle: AppTheme.lightTheme.textTheme.headlineLarge,));
+
+  Row entradaSwitch() {
+    return Row(
+      children: [
+        const FlutterLogo(),
+        Text(
+          'Flutter?',
+          style: AppTheme.lightTheme.textTheme.headlineLarge,
+        ),
+        Switch(
+          value: valueSwitch,
+          onChanged: (value){
+            setState((){
+              valueSwitch = value;
+            });
+          }),
+      ],
+    );
+  }
+
+  Column entradaSlider(){
+    return Column(
+      children: [
+        Text(
+          'Por que te disgusta Flutter?',
+          style: AppTheme.lightTheme.textTheme.headlineLarge,
+        ),
+        Slider(min: 0.0, max: 300.0, value: sliderValue, divisions: 10, label: '${sliderValue.round()}', 
+          onChanged: (value) {
+           setState(() {
+           sliderValue = value; 
+           print('valor del slider: $sliderValue');
+        });
+        }), 
       ],
     );
   }

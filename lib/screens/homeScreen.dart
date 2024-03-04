@@ -26,7 +26,8 @@ class HomeScreen extends StatelessWidget {
                   });
                   Navigator.push(context, ruta1);
                 },
-                trailing: const Icon(Icons.arrow_right_alt_outlined, color: AppTheme.secondaryColor,),
+                //trailing: const Icon(Icons.arrow_right_alt_outlined, color: AppTheme.secondaryColor,),
+                trailing: const CircularProgressIndicator(value: 0.99,),
               ),
               Divider(),
               ListTile(
