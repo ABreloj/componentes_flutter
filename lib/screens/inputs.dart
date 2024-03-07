@@ -11,6 +11,7 @@ class inputs extends StatefulWidget {
 class _inputsState  extends State<inputs > {
   bool valueSwitch = false;
   double sliderValue = 0.0;
+  int foodRadio = 0;
   @override
   Widget build(BuildContext context) {
 
@@ -27,6 +28,7 @@ class _inputsState  extends State<inputs > {
              entradaTexto(),
              entradaSwitch(),
              entradaSlider(),
+             entradaRadio(),
               
                 const ElevatedButton(onPressed: null, child: Text('Guardar')),
             
@@ -72,6 +74,53 @@ class _inputsState  extends State<inputs > {
            print('valor del slider: $sliderValue');
         });
         }), 
+      ],
+    );
+  }
+
+  Column entradaRadio(){
+    return Column(
+      children: [
+        Text(
+          'Desarrollo Movil',
+          style: AppTheme.lightTheme.textTheme.headlineLarge,
+        ),
+        ListTile(
+          title: Text(
+            'Ensalada',
+            style: AppTheme.lightTheme.textTheme.bodySmall,
+          ),
+          leading: Radio(
+            value: 1,
+            groupValue: foodRadio,
+            onChanged: (value){
+              setState(() {
+                foodRadio = value!;
+                //print('Comida elegida: $foodRadio');
+              });
+              
+            },
+          ),
+        ),
+
+
+        ListTile(
+          title: Text(
+            'Pizza',
+            style: AppTheme.lightTheme.textTheme.bodySmall,
+          ),
+          leading: Radio(
+            value: 2,
+            groupValue: foodRadio,
+            onChanged: (value){
+              setState(() {
+                foodRadio = value!;
+                //print('Comida elegida: $foodRadio');
+              });
+              
+            },
+          ),
+        ),
       ],
     );
   }
