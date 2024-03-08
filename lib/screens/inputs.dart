@@ -12,29 +12,38 @@ class _inputsState  extends State<inputs > {
   bool valueSwitch = false;
   double sliderValue = 0.0;
   int foodRadio = 0;
+  bool postreCheck1 = false;
+  bool postreCheck2 = false;
+  bool postreCheck3 = false;
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Mermelada cosmica 2x1'), ),
 
-      body: Padding(
-        padding: const EdgeInsets.all(19.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            
-             
-             entradaTexto(),
-             entradaSwitch(),
-             entradaSlider(),
-             entradaRadio(),
+      body: ListView(
+        children: [ Padding(
+          padding: const EdgeInsets.all(19.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
               
-                const ElevatedButton(onPressed: null, child: Text('Guardar')),
-            
-          ],
+               
+               entradaTexto(),
+               entradaSwitch(),
+               entradaSlider(),
+               entradaRadio(),
+               Text('Que postres te gustan?', style: AppTheme.lightTheme.textTheme.headlineLarge,),
+               entradasCheck(),
+                
+                  const ElevatedButton(onPressed: null, child: Text('Guardar')),
+              
+            ],
+          ),
         ),
+        ],
       ),
+
       bottomNavigationBar:  BottomNavigationBar(items: const [BottomNavigationBarItem(icon: Icon(Icons.home), label: 'inicio'), BottomNavigationBarItem(icon: Icon(Icons.next_plan), label: 'Datos',)],),
     );
   }
@@ -124,4 +133,45 @@ class _inputsState  extends State<inputs > {
       ],
     );
   }
+
+  Row entradasCheck(){
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Text(
+          'Helado',
+          style: AppTheme.lightTheme.textTheme.headlineSmall,
+          ),
+          Checkbox(value: postreCheck1, onChanged: (value){
+            setState(() {
+              postreCheck1 = value!;
+            });
+          }),
+          Text(
+          'Chocoflan',
+          style: AppTheme.lightTheme.textTheme.bodySmall,
+          ),
+          Checkbox(value: postreCheck2, onChanged: (value){
+            setState(() {
+              postreCheck2 = value!;
+            });
+          }),
+          Text(
+          'Helado',
+          style: AppTheme.lightTheme.textTheme.bodySmall,
+          ),
+          Checkbox(value: postreCheck3, onChanged: (value){
+            setState(() {
+              postreCheck3 = value!;
+            });
+          }),
+          Text(
+          'Pastel de chocolate con choclate',
+          style: AppTheme.lightTheme.textTheme.bodySmall,
+          ),
+          
+      ],
+    );
+  }
+
 }
